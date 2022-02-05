@@ -4,6 +4,7 @@ export default {
     primary: {
       main: '#5061FC',
       lighter: '#E0E3FF',
+      dark: '#303a97',
     },
     danger: {
       main: '#FC5050',
