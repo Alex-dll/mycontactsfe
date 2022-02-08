@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-import arrow from '../../assets/images/icons/arrow.svg';
+import arrow from '../../../assets/images/icons/arrow.svg';
 
 function PageHeader({ title }) {
   return (

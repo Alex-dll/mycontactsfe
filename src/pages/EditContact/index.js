@@ -1,12 +1,16 @@
 import React from 'react';
-import PageHeader from '../../components/PageHeader';
+import ContactForm from '../../components/ContactForm';
+import PageHeader from '../../components/Header/PageHeader';
 
 // import { Container } from './styles';
 
-function EditContact() {
+function NewContact() {
   return (
-    <PageHeader title="Editar Alex Sandro" />
+    <>
+      <PageHeader title="Novo Contato" />
+      <ContactForm buttonLabel="Salvar Alterações" />
+    </>
   );
 }
 
-export default EditContact;
+export default NewContact;
