@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import Modal from '../../components/Modal';
+
 import {
   Container, InputSearchContainer, Header, ListContainer, Card,
 } from './styles';
@@ -13,6 +15,7 @@ import trash from '../../assets/images/icons/trash.svg';
 function Home() {
   return (
     <Container>
+      <Modal />
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contato..." />
       </InputSearchContainer>
