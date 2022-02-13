@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export default styled.button`
   height: 52px;
@@ -12,7 +12,7 @@ export default styled.button`
   border-radius: 4px;
   transition: filter 0.2s ease-in;
 
-  if !disabled &:hover {
+  &:hover {
     filter: brightness(1.2);
   }
 
@@ -25,4 +25,23 @@ export default styled.button`
     cursor: default;
     filter: none;
   }
+
+  ${({ theme, danger }) => danger && css`;
+    background: ${theme.colors.danger.main};
+
+    &:hover {
+    filter: brightness(1.2);
+  }
+
+  &:active {
+    filter: brightness(0.4);
+  }
+
+  &[disabled] {
+    background: #CCCC;
+    cursor: default;
+    filter: none;
+  }
+
+  `};
 `;

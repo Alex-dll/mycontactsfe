@@ -16,6 +16,7 @@ function Home() {
   return (
     <Container>
       <Modal />
+
       <InputSearchContainer>
         <input type="text" placeholder="Pesquisar contato..." />
       </InputSearchContainer>
