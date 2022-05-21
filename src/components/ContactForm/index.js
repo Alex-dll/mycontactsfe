@@ -47,6 +47,7 @@ function ContactForm({ buttonLabel }) {
     <Form onSubmit={handleSubmit}>
       <FormGroup error={getErrorMessageByFieldName('name')}>
         <Input
+          type="email"
           error={getErrorMessageByFieldName('name')}
           placeholder="Nome"
           value={name}
