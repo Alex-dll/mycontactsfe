@@ -18,7 +18,11 @@ function ContactForm({ buttonLabel }) {
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
 
-  const { setError, removeError, getErrorMessageByFieldName } = useErrors();
+  const {
+    setError, removeError, getErrorMessageByFieldName, errors,
+  } = useErrors();
+
+  const isFormValid = (name && phone && errors.length === 0);
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -43,7 +47,7 @@ function ContactForm({ buttonLabel }) {
   function handlePhoneChange(event) {
     setPhone(formatPhone(event.target.value));
 
-    if (phone.length < 15) {
+    if (event.target.value < 14) {
       setError({ field: 'phone', message: 'Telefone inválido' });
     } else {
       removeError('phone');
@@ -58,15 +62,15 @@ function ContactForm({ buttonLabel }) {
     <Form onSubmit={handleSubmit} noValidate>
       <FormGroup error={getErrorMessageByFieldName('name')}>
         <Input
-          type="email"
           error={getErrorMessageByFieldName('name')}
-          placeholder="Nome"
+          placeholder="Nome *"
           value={name}
           onChange={handleNameChange}
         />
       </FormGroup>
       <FormGroup error={getErrorMessageByFieldName('email')}>
         <Input
+          type="email"
           error={getErrorMessageByFieldName('email')}
           placeholder="E-mail"
           value={email}
@@ -76,9 +80,10 @@ function ContactForm({ buttonLabel }) {
       <FormGroup>
         <Input
           placeholder="Telefone"
+          error={getErrorMessageByFieldName('phone')}
           value={phone}
           onChange={handlePhoneChange}
-          maxLenth="15"
+          maxLength="15"
         />
       </FormGroup>
 
@@ -94,7 +99,7 @@ function ContactForm({ buttonLabel }) {
       </FormGroup>
 
       <ButtonContainer>
-        <Button type="submit">
+        <Button type="submit" disabled={!isFormValid}>
           {buttonLabel}
         </Button>
       </ButtonContainer>
