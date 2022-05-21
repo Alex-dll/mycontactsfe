@@ -41,10 +41,6 @@ function ContactForm({ buttonLabel }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    console.log({
-      name, email, phone, category,
-    });
   }
 
   return (
